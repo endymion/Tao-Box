@@ -2,9 +2,10 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { TaoBoxStack } from '../lib/tao-box-stack';
+import { EC2ImageBuilderStack } from '../lib/ec2-image-builder-stack';
 
 const app = new cdk.App();
-new TaoBoxStack(app, 'TaoBoxStack', {
+new TaoBoxStack(app, 'TaoBox', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
@@ -19,3 +20,5 @@ new TaoBoxStack(app, 'TaoBoxStack', {
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 });
+
+new EC2ImageBuilderStack(app, 'EC2ImageBuilder');
